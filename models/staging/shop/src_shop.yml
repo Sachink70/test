@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: shop
+    tables:
+      - name: order_table
+      - name: CUSTOMER
+
