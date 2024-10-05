@@ -6,17 +6,17 @@ with customers as(
 orders as(
     select * from {{ ref('stg_ord') }}
 ),
-customer_orders AS (
+ customer_orders AS (
    SELECT 
-       o.customer_id,  -- Use customer_id from orders (since we are joining below)
+       o.customer_id,  
        MIN(o.order_date) AS first_order_date,
        MAX(o.order_date) AS most_recent_order_date,
        COUNT(o.order_id) AS number_of_orders
    FROM orders o
-   JOIN customers c ON o.customer_id = c.customer_id  -- Join orders with customers based on customer_id
+   JOIN customers c ON o.customer_id = c.customer_id
    GROUP BY o.customer_id
 ),
- final AS (
+final AS (
    SELECT 
        c.customer_id,
        c.first_name,
