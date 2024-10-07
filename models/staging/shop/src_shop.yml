@@ -5,4 +5,7 @@ sources:
     tables:
       - name: order_table
       - name: customer
-
+       # loaded_at_field: <your_new_timestamp_field>  # replace this with a valid field in the table
+        #freshness: 
+         # warn_after: {count: 12, period: hour}
+          #error_after: {count: 24 , period: hour} 
