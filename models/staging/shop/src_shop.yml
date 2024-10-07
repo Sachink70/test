@@ -4,5 +4,5 @@ sources:
   - name: shop
     tables:
       - name: order_table
-      - name: CUSTOMER
+      - name: customer
 
