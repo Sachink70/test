@@ -1,17 +1,14 @@
 {{ config (
-   materialized ="table"
+   materialized = "table"
 )}}
-
-with payment as (
-    select * from raw.shop.payment
-),
- payment as(
-select id as payment_id,
-order_id,
-payment_method,
-status,
-amount,
-created 
-from raw.shop.payment
-)
-select * from payment
+with payments as (
+    select 
+        id as payment_id,
+        order_id,
+        payment_method,
+        status,
+        amount,
+        created 
+    from {{source("stripe", "payment")}}  
+)  
+select * from payments
