@@ -9,11 +9,31 @@ sources:
         #freshness: 
          # warn_after: {count: 12, period: hour}
           #error_after: {count: 24 , period: hour} 
-#models:  --- i did not created table not null and unique
+ 
+   #-- i did not created table not null and unique
+#models:
 #  - name: stg_cust
  #   columns:
   #    - name: customer_id
    #     tests:
     #      - unique
      #     - not_null
+
+#models:
+#  - name: stg_ord
+#    columns:
+#      - name: order_id
+#        tests:
+#          - unique
+#          - not_null
+#      - name: status
+#        tests:
+#          - accepted_values:
+#              values:
+#                - pending
+#                - delivered
+#                - shipped
+            
+
+    
               
